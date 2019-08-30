@@ -11,7 +11,8 @@
 			active-text-color="#ffd04b"
 			unique-opened
 			>
-			<el-submenu v-for="item in menus" :index="item.id" :key="item.id">
+				<menu-tree></menu-tree>
+			<!-- <el-submenu v-for="item in menus" :index="item.id" :key="item.id">
 				<template slot="title">
 					<span v-text="item.name"></span>
 				</template>
@@ -21,14 +22,14 @@
 					v-text="sub.name"
 					:key="sub.componentName"
 				></el-menu-item>
-			</el-submenu>
+			</el-submenu> -->
 		</el-menu>
 	</el-row>
 </template>
 
 <script>
-	// import menus from '@/config/menu-config';
-	import { mapState } from 'vuex';
+	// import menus from '@/config/menu-config'
+	import { mapState } from 'vuex'
 
 	export default {
 		data() {
@@ -40,30 +41,31 @@
 		computed: {
 			...mapState({
 				menus: state => {
-					return state.menus;
+					return state.menus
 				}
 			}),
 			defaultActiveIndex() {
 				if(this.$route.name !== '/') {
-					return this.$route.name;
+					return this.$route.name
 				}	
-				return this.$store.state.menus[0].subs[0].componentName;
+				return this.$store.state.menus[0].subs[0].componentName
 			}
 		},
 
 		mounted() {
-			this.$store.dispatch('getMenuAsync');
+			// this.$store.commit('getMenuAsync')
+			
 		},
 
 		methods: {
 			handleOpen(key, keyPath) {
-				console.log(key, keyPath);
+				console.log(key, keyPath)
 			},
 			handleClose(key, keyPath) {
-				console.log(key, keyPath);
+				console.log(key, keyPath)
 			},
 			handleSelect(key, keyPath) {
-				console.log(key, keyPath);
+				console.log(key, keyPath)
 			}
 		},
 	}
@@ -71,6 +73,6 @@
 
 <style lang="less" scoped>
 .el-menu-item.is-active {
-	background-color: #404a50 !important;
+	background-color: #404a50 !important
 }
 </style>

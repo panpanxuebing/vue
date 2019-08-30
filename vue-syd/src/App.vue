@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Navbar from '@/layout/Navbar';
+import Navbar from '@/layout/Navbar'
 
 export default {
 	name: 'App',
@@ -29,7 +29,7 @@ export default {
 			
 		}
 	}
-};
+}
 </script>
 
 <style lang="less" scoped>
